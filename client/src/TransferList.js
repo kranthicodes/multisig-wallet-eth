@@ -3,12 +3,10 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
   TableCaption,
-  
   chakra,
 } from "@chakra-ui/react";
 export default function TransferList({ transfers, approveTransfer }) {
