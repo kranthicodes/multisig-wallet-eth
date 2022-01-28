@@ -7,13 +7,7 @@ module.exports = {
 
   networks: {
     kovan: {
-      provider: () =>
-        new provider(
-          secrets.privateKeys,
-          "https://kovan.infura.io/v3/a7aa36fe9b7244f99529023a1a3c27ab",
-          0,
-          3
-        ),
+      provider: () => new provider(secrets.privateKeys, secrets.kovanUrl, 0, 3),
       network_id: 42,
     },
   },
