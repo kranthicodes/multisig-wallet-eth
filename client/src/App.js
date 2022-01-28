@@ -3,6 +3,7 @@ import Header from "./Header";
 import NewTransfer from "./NewTransfer";
 import TransferList from "./TransferList";
 import { getWallet, getWeb3 } from "./utils";
+import { Flex, Heading } from "@chakra-ui/react";
 function App() {
   const [web3, setWeb3] = React.useState(null);
   const [accounts, setAccounts] = React.useState(null);
@@ -41,12 +42,27 @@ function App() {
     return <div>Loading....</div>;
   }
   return (
-    <div className="App">
-      Multisig Dapp
-      <Header approvers={approvers} quorum={quorum} />
-      <NewTransfer createTransfer={createTransfer} />
-      <TransferList approveTransfer={approveTransfer} transfers={transfers} />
-    </div>
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      css={{
+        background:
+          "linear-gradient(120deg, #FF00C7 0%, #51003F 100%), linear-gradient(120deg, #0030AD 0%, #00071A 100%), linear-gradient(180deg, #000346 0%, #FF0000 100%), linear-gradient(60deg, #0029FF 0%, #AA0014 100%), radial-gradient(100% 165% at 100% 100%, #FF00A8 0%, #00FF47 100%), radial-gradient(100% 150% at 0% 0%, #FFF500 0%, #51D500 100%)",
+        backgroundBlendMode:
+          "overlay, color-dodge, overlay, overlay, difference, normal",
+      }}
+      h="100vh"
+      w="100vw"
+    >
+      <Flex mr={12} bgColor="white" p="12px 14px" borderRadius="6px">
+        <TransferList approveTransfer={approveTransfer} transfers={transfers} />
+      </Flex>
+      <Flex ml={12} direction="column">
+        <Heading color="whitesmoke">Multi Signature Wallet</Heading>
+        <Header approvers={approvers} quorum={quorum} />
+        <NewTransfer createTransfer={createTransfer} />
+      </Flex>
+    </Flex>
   );
 }
 
